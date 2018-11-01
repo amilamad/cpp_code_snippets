@@ -134,3 +134,13 @@ static inline std::string &trim(std::string &s) {
 static inline std::string &RemoveWhiteSpaces(std::string &s) {
 	return ltrim(rtrim(s));
 }
+
+/** This will pad a given string to given length. Extra characters will be filled with spaces. */
+inline std::wstring PadString(const std::wstring& baseString, int lenght)
+{
+	std::wstringstream wss;
+	wss << std::setw(lenght) << std::setfill(L' ') << std::left; 
+	wss << baseString;
+
+	return wss.str();
+}
