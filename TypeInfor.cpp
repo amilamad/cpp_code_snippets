@@ -28,13 +28,20 @@ public:
 };
 
 template <typename T>
-const int TypeIfo::Registered<T>::index0 = TypeIfo::addIndex();
+const int TypeInfo::Registered<T>::index0 = TypeInfo::addIndex();
 
-__declspec(selectany) int TypeIfo::nextIndex = 0;
- 
+__declspec(selectany) int TypeInfo::nextIndex = 0;
+
 /** 
 Usage :
-int idx0 = TypeIfo::getIndex<MapPlane>();
-int idx1 = TypeIfo::getIndex<std::string>();
-int idx2 = TypeIfo::getIndex<MapPlane>();
 */
+
+int main()
+{
+	int idx0 = TypeInfo::getIndex<int>();
+	int idx1 = TypeInfo::getIndex<std::string>();
+	int idx2 = TypeInfo::getIndex<float>();
+
+	return 0;
+}
+
