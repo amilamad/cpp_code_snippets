@@ -144,3 +144,31 @@ inline std::wstring PadString(const std::wstring& baseString, int lenght)
 
 	return wss.str();
 }
+
+    void WriteStringsToFile(const std::string file_path, std::vector<std::string> vec) const
+    {
+      std::ofstream myfile;
+      myfile.open(file_path.c_str());
+
+      for (const auto &str : vec)
+      {
+        myfile << xpath << "\n";
+      }
+
+      myfile.close();
+    }
+
+    std::vector<std::string> ReadFileForStrings(const std::string file_path) const
+    {
+      std::vector<std::string> result;
+
+      std::ifstream infile(file_path.c_str());
+
+      std::string line;
+      while (std::getline(infile, line))
+      {
+        result.push_back(line);
+      }
+
+      return result;
+    }
